@@ -1,4 +1,3 @@
-
 /**
  * Login Class
  */
@@ -41,11 +40,26 @@ Login.prototype.login = function(_name, _email) {
  * Logout from the server
  */ 
 Login.prototype.logout = function(sessionId) {
-	console.log('logout::' + sessionId);
+
    /*
-	* TODO: Remove the given sessionId from the sessionMap
-	*/
+        * TODO: Remove the given sessionId from the sessionMap
+        */
+      delete this.sessionMap[sessionId];
+console.log('logout::' + sessionId);
+};
+
+Login.prototype.renew =function(sessionid) {
+
+delete this.sessionMap[sessionId];
+
+var sessionId = new Date().getTime();
+
+    // this.sessionMap[sessionId];
+
+        console.log('new session id ' + sessionId );
+return sessionId;
 };
 
 // Export the Login class
 module.exports = new Login();
+
