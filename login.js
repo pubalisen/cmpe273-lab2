@@ -49,20 +49,20 @@ console.log('logout::' + sessionId);
 };
 
 Login.prototype.renew =function(sessionid) {
+if (sessionid in this.sessionMap) {
+var uname = this.sessionMap[sessionid].name;
+var uemail = this.sessionMap[sessionid].email;
 
-delete this.sessionMap[sessionId];
+delete this.sessionMap[sessionid];
 
 var sessionId = new Date().getTime();
 
     // this.sessionMap[sessionId];
-
-//        console.log('new session id ' + sessionId );
-this.sessionMap[sessionId] =  new Date().getTime();
-
+this.sessionMap[sessionId] = { name: uname, email: uemail }
         console.log('new session id ' + sessionId);
 
         return sessionId;
-
+}
 };
 
 
