@@ -56,9 +56,15 @@ var sessionId = new Date().getTime();
 
     // this.sessionMap[sessionId];
 
-        console.log('new session id ' + sessionId );
-return sessionId;
+//        console.log('new session id ' + sessionId );
+this.sessionMap[sessionId] =  new Date().getTime();
+
+        console.log('new session id ' + sessionId);
+
+        return sessionId;
+
 };
+
 
 // Export the Login class
 module.exports = new Login();
